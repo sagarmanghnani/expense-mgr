@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Expenselist from './components/Expenselist';
+import ShowExpense from './components/ShowExpense';
 import './App.css';
 
 class App extends Component {
@@ -21,7 +22,7 @@ addExpense()
   this.expenseDate = document.getElementById("expenseDate").value;
   this.expenseObject = {
     title: this.title,
-    amount: this.amount,
+    amount: +this.amount,
     date: this.expenseDate
   }
   console.log(this.expenseObject);
@@ -44,6 +45,7 @@ checkState()
       <div className="App">
         <Expenselist getDetails = {this.addExpense}/>
         <button onClick = {() => {this.checkState()}} >check</button>
+        <ShowExpense giveExpense = {this.state.expenselist}/>
       </div>
     );
   }

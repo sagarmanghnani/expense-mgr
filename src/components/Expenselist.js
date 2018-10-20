@@ -6,11 +6,6 @@ export class Expenselist extends Component {
 
   }
 
-  provideDetails()
-  {
-
-  }
-
   render() {
     return (
       <div className = "expenseList">
