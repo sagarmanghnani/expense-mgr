@@ -8,10 +8,13 @@ class App extends Component {
  {
    super()
    this.state = {
-     expenselist:[]
+     expenselist:[],
+     showModal:false
    }
+   this.modal = null;
    this.addExpense = this.addExpense.bind(this);
    this.checkState = this.checkState.bind(this);
+   this.viewModal = this.viewModal.bind(this)
 }
 
 
@@ -31,6 +34,12 @@ addExpense()
   });
 }
 
+viewModal = () => {
+  this.setState({
+    showModal:true
+  });
+}
+
 
 checkState()
 {
@@ -41,11 +50,20 @@ checkState()
 }
 
   render() {
+    
+    if(this.state.showModal)
+    {
+      this.modal = (
+        <Expenselist getDetails = {this.addExpense}/>
+      )
+    }
     return (
       <div className="App">
-        <Expenselist getDetails = {this.addExpense}/>
+        
         <button onClick = {() => {this.checkState()}} >check</button>
+        <button onClick = {() => this.viewModal()}>Show Modal</button>
         <ShowExpense giveExpense = {this.state.expenselist}/>
+        {this.modal}
       </div>
     );
   }
