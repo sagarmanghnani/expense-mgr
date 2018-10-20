@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-
+import React from 'react';
+import ShowExpensecomp from './ShowExpensecomp';
 function ShowExpense(props)
 {
     
@@ -12,7 +12,7 @@ function ShowExpense(props)
                 return(
                    <div className = "showExpense">
                         {props.giveExpense.map((message, index) => {
-                            return(<div>{message.title}</div>)
+                            return (<ShowExpensecomp expenseObj = {message} key = {index}/>)
                         })}
                     </div>
                 )
