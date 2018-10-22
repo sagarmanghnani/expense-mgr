@@ -5,7 +5,7 @@ function ShowExpensecomp(props) {
         <div>
             <div>{props.expenseObj.title}</div>
             <div>{props.expenseObj.amount}</div>
-            <div>{props.expenseObj.expenseDate}</div>
+            <div>{props.expenseObj.date}</div>
         </div>  
     )
 }
