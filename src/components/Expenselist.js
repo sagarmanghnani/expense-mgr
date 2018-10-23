@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import '../css/Expenselist.css';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export class Expenselist extends Component {
@@ -27,29 +28,28 @@ export class Expenselist extends Component {
     return (
       <div className = "modal-container">
         <Button color="danger" onClick={this.toggle}>Hello</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle}></Modal>
-          <ModalHeader>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} role="dialog"></Modal>
+          <ModalHeader toggle={this.toggle}>
           <div>{this.state.modal}</div>
             Expense List
           </ModalHeader>
           <ModalBody>
-          <div className = "expenseList">
-            <div className = "title">
-              <label>Add Title</label>
-              <input type = "text"  id="title"/>
-            </div>
+            <div className = "expenseList">
+              <div className = "title">
+                <label>Add Title</label>
+                <input type = "text"  id="title"/>
+              </div>
 
-            <div className = "expenseAmount">
-              <label>Add Expense money</label>
-              <input type = "number" id = "expenseMoney"/>
-            </div>
+              <div className = "expenseAmount">
+                <label>Add Expense money</label>
+                <input type = "number" id = "expenseMoney"/>
 
-            <div className = "expenseCreatedDate">
-              <label>Add Created Date</label>
-              <input type = "date" id = "expenseDate"/>
+              <div className = "expenseCreatedDate">
+                <label>Add Created Date</label>
+                <input type = "date" id = "expenseDate"/>
+              </div>
+              
             </div>
-            
-          </div>
           </ModalBody>
           <ModalFooter>
             <button onClick = {() => this.props.getDetails()}>Submit</button>

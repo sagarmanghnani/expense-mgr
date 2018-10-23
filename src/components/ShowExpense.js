@@ -1,5 +1,7 @@
 import React from 'react';
 import ShowExpensecomp from './ShowExpensecomp';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 function ShowExpense(props)
 {
     
@@ -11,6 +13,7 @@ function ShowExpense(props)
             else{
                 return(
                    <div className = "showExpense">
+                      
                         {props.giveExpense.map((message, index) => {
                             return (<ShowExpensecomp expenseObj = {message} key = {index}/>)
                         })}
